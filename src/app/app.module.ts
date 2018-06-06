@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { CountryInfoComponent } from './country-info/country-info.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CountryService } from './services/country.service';
+import { DataShareService } from './services/data-share.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { CountryService } from './services/country.service';
     ])
   ],
   providers: [
-    CountryService
+    CountryService,
+    DataShareService
   ],
   bootstrap: [AppComponent]
 })

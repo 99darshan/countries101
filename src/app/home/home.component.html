@@ -6,7 +6,7 @@
   <!-- If more than one result is found for the given search term 
   display links for each individual country -->
   <div *ngIf="searchedCountry.length > 1">
-    <div *ngFor = "let contry of searchedCountry">
+    <div *ngFor = "let country of searchedCountry">
         <a [routerLink] = "['/country', country.alpha2Code]">
           <h3>{{country.name}}</h3>
         </a>

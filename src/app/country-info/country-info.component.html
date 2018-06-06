@@ -1,8 +1,11 @@
 <app-home></app-home>
-<p>  
-  country-info works!
-</p>
+<div *ngIf = "country.length > 0">
+  <p>  
+    country-info works! Country is {{country[0].name}}
+  </p>
+  <img src={{country[0].flag}} height="100rem" width="100rem" />
 
+</div>
     <!-- only display if searchedCountry is defined or has more than one entry -->
     <!-- <div *ngIf="searchedCountry.length > 0">
         <h1>{{searchedCountry[0].name}}</h1>

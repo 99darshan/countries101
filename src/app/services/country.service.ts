@@ -5,14 +5,15 @@ import { Http } from '@angular/http';
   providedIn: 'root'
 })
 export class CountryService {
-  // fetch countries by name, here {name} specifies the search term
-  // https://restcountries.eu/rest/v2/name/{name}?fullText=true
-  private baseUrl = 'https://restcountries.eu/rest/v2/name/';
+
+  private baseUrl = '';
 
   constructor(private http: Http) { }
 
   fetchCountries(country) {
-    this.baseUrl += country + '?fullText=false';
+    // fetch countries by name, here {name} specifies the search term
+    // https://restcountries.eu/rest/v2/name/{name}?fullText=true
+    this.baseUrl = 'https://restcountries.eu/rest/v2/name/' + country + '?fullText=false';
     console.log(this.baseUrl);
     return this.http.get(this.baseUrl);
   }
