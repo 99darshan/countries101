@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataShareService } from '../services/data-share.service';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-country-info',
@@ -9,13 +10,31 @@ import { DataShareService } from '../services/data-share.service';
 export class CountryInfoComponent implements OnInit {
   // @Input() searchedCountry: object;
 
-  private country = [];
-  constructor(private dataShareService: DataShareService) { }
+  private country = {};
+  constructor(private dataShareService: DataShareService,
+              private _route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.country = this.dataShareService.searchedData;
-    console.log('country-info init: ' + this.dataShareService.searchedData);
-    // console.log('country-info name: ' + this.country[0].name + this.dataShareService[0].name);
+    // since ngOnIt is instantiated only once when the compnonet is first loaded
+    // activatedRoute should be used to call the ngOnit on param Change
+    // this._route.params.forEach(() => {
+    //   console.log('info-onit-param change called');
+    //   this.dataShareService.searchedData.forEach((c) => {
+    //     console.log(c.name);
+    //   });
+    //   this.country = this.dataShareService.searchedData;
+    // });
+
+    this._route.paramMap.subscribe((params: ParamMap) => {
+      // this.country = this.dataShareService.searchedData;
+      const countryCode = params.get('countryCode');
+
+      this.country = this.dataShareService.searchedData.filter((con) => {
+        console.log(con.alpha2Code + '------' + countryCode);
+        return con.alpha2Code === countryCode;
+      });
+    });
+    
   }
 
   // TODO: if searchData in dataShareService is null or empty redirect to homepage

@@ -27,8 +27,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.shareDataService.searchedData = this.searchedCountry;
-    console.log('state on home destry: ' + this.shareDataService.searchedData);
+    // this.shareDataService.searchedData = this.searchedCountry;
+    console.log('state on home destry: ' + this.shareDataService.searchedData.length + '==' + this.shareDataService.searchedData);
   }
 
   public onSearchInputChange(event: any): void {
@@ -39,13 +39,15 @@ export class HomeComponent implements OnInit, OnDestroy {
   public onSearchButtonClick(event: any): void {
     console.log('on clicked called');
     // console.log(this.data.name);
-
     this.service.fetchCountries(this.searchTerm)
                 .subscribe((response) => {
-                  this.searchedCountry = [];
+                  // this.searchedCountry = [];
                   console.log('response inside: ' + response.json());
                   this.searchedCountry = response.json();
                   this.isSearched = true;
+                  // set the state in data share service done in destroy
+                  this.shareDataService.searchedData = this.searchedCountry;
+
 
                   // navigate to 404 if no country is found
                   if (this.searchedCountry.length === 0 && this.isSearched) {
