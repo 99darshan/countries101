@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { DataShareService } from '../services/data-share.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-country-info',
@@ -10,9 +11,10 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 export class CountryInfoComponent implements OnInit {
   // @Input() searchedCountry: object;
 
-  private country = {};
+  public country = [];
   constructor(private dataShareService: DataShareService,
-              private _route: ActivatedRoute) { }
+              private _route: ActivatedRoute,
+              @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
     // since ngOnIt is instantiated only once when the compnonet is first loaded
@@ -33,8 +35,7 @@ export class CountryInfoComponent implements OnInit {
         console.log(con.alpha2Code + '------' + countryCode);
         return con.alpha2Code === countryCode;
       });
-    });
-    
+    }); 
   }
 
   // TODO: if searchData in dataShareService is null or empty redirect to homepage

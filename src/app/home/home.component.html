@@ -1,17 +1,23 @@
 <div>
-  <input type="text" placeholder="search country name" (input)="onSearchInputChange($event)" />
-  <button (click)="onSearchButtonClick($event)" >Search</button>
+  <mat-form-field class="margin-lr-lg">
+    <input matInput type="text" placeholder="search country name" (input)="onSearchInputChange($event)" />
+  </mat-form-field>
+  <button mat-raised-button color = "primary" (click)="onSearchButtonClick($event)" class="margin-lr-lg">Search</button>
+  
   <p>I typed {{searchTerm}}!!</p>
   
   <!-- If more than one result is found for the given search term 
   display links for each individual country -->
   <div *ngIf="searchedCountry.length > 1">
-    <div *ngFor = "let country of searchedCountry">
+    <!-- <div *ngFor = "let country of searchedCountry">
         <a [routerLink] = "['/country', country.alpha2Code]">
           <h3>{{country.name}}</h3>
         </a>
-      </div>
+      </div> --> 
     <!-- <app-country-info [searchedCountry] = "searchedCountry"></app-country-info> -->
+
+    <!-- display modal of countries-list if result contains more than one country -->
+    <app-countries-list [countries] = "searchedCountry"></app-countries-list>
   </div>
 
 

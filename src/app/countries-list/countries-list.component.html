@@ -1,0 +1,10 @@
+<mat-grid-list cols = "2" rowHeight = "2:1">
+  <mat-grid-tile
+    *ngFor = "let con of this.countries"
+    >
+    <div (click) = "onCountryClick(con)">
+      <h2>{{con.name}}</h2>
+      <img src={{con.flag}} height="100em" width="100em"/>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

@@ -1,15 +1,27 @@
-<app-home></app-home>
+<!-- <app-home></app-home>
 <div *ngIf = "country.length > 0">
 
   <p>  
     country-info works! Country is {{country[0].name}}
   </p>
   <img src={{country[0].flag}} height="100rem" width="100rem" />
-</div>
+</div> -->
     <!-- only display if searchedCountry is defined or has more than one entry -->
     <!-- <div *ngIf="searchedCountry.length > 0">
         <h1>{{searchedCountry[0].name}}</h1>
         <h4>{{searchedCountry[0].nativeName}}</h4>
         <img src = {{searchedCountry[0].flag}} />
       </div> -->
+
+
+  
+  
+  <div mat-dialog-content>
+    <h1 mat-dialog-title>{{data.country.name}}</h1>
+    <img src = {{data.country.flag}} height="100rem" width="100rem" />
+    <mat-dialog-actions>
+      <button mat-button [mat-dialog-close] = 'true'>Close</button>
+    </mat-dialog-actions>
+  </div>
+
 

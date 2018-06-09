@@ -1,7 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {Router} from '@angular/router';
+import { MatDialog, MatDialogRef } from '@angular/material';
+
 import { CountryService } from '../services/country.service';
 import { DataShareService } from '../services/data-share.service';
+import { CountriesListComponent } from '../countries-list/countries-list.component';
+import { CountryInfoComponent } from '../country-info/country-info.component';
+
 // import * as countries from '../../data/countries.json';
 
 @Component({
@@ -17,10 +22,10 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   constructor(private router: Router,
               private service: CountryService,
-              private shareDataService: DataShareService) {
+              private shareDataService: DataShareService,
+              public matDialog: MatDialog) {
 
   }
-
 
   ngOnInit() {
     console.log('state on home init: ' + this.shareDataService.searchedData);
@@ -56,9 +61,24 @@ export class HomeComponent implements OnInit, OnDestroy {
                   // If only one country is found for the search term
                   // navigate to that country info route
                   if (this.searchedCountry.length === 1 && this.isSearched) {
-                    this.router.navigate(['country', this.searchedCountry[0].alpha2Code]);
+                    // show dialog of country info
+                    let matDialogRef = this.matDialog.open(CountryInfoComponent, {
+                      // height: '150rem',
+                      // width: '150rem',
+                      data: {country: this.searchedCountry[0]}
+                    });
+
+                    //this.router.navigate(['country', this.searchedCountry[0].alpha2Code]);
                     // this.router.navigateByUrl('country/ne');
                   }
+
+                  // if search result contains more than one country display modal
+                  // if (this.searchedCountry.length > 1 && this.isSearched) {
+
+
+
+                  //   // TODO: matdialogRef close
+                  // }
                 }, (error: Response) => {
                   // TODO: handle Errors
                   // display toast and log errors
