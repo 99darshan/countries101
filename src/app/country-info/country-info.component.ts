@@ -17,16 +17,6 @@ export class CountryInfoComponent implements OnInit {
               @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
-    // since ngOnIt is instantiated only once when the compnonet is first loaded
-    // activatedRoute should be used to call the ngOnit on param Change
-    // this._route.params.forEach(() => {
-    //   console.log('info-onit-param change called');
-    //   this.dataShareService.searchedData.forEach((c) => {
-    //     console.log(c.name);
-    //   });
-    //   this.country = this.dataShareService.searchedData;
-    // });
-
     this._route.paramMap.subscribe((params: ParamMap) => {
       // this.country = this.dataShareService.searchedData;
       const countryCode = params.get('countryCode');

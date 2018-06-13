@@ -17,10 +17,10 @@ export class CountriesListComponent implements OnInit {
               private _dataService: DataShareService,
               public matDialog: MatDialog) { }
 
-  //countries = [];
+  // countries = [];
   ngOnInit() {
-    //this.countries = this._dataService.searchedData;
-    //this.countries.forEach(con => console.log(con.name));
+    // this.countries = this._dataService.searchedData;
+    // this.countries.forEach(con => console.log(con.name));
   }
 
   onCountryClick(country) {

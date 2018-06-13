@@ -1,10 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 
 body { margin: 0; }
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
+/* @import "~bootstrap/dist/css/bootstrap.min.css"; */
 
 /* Margins */
 .margin-lr-lg {
   margin-left: 1.4rem;
   margin-right: 1.4rem;
+}
+
+.center-horz {
+  display: flex;
+  justify-content: center;
 }

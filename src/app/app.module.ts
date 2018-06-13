@@ -6,6 +6,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { FormsModule } from '@angular/forms';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -15,6 +17,7 @@ import { CountryService } from './services/country.service';
 import { DataShareService } from './services/data-share.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CountriesListComponent } from './countries-list/countries-list.component';
+import { MatCardModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,7 @@ import { CountriesListComponent } from './countries-list/countries-list.componen
     CountriesListComponent
   ],
   entryComponents: [
-    CountriesListComponent
+    CountryInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -34,21 +37,24 @@ import { CountriesListComponent } from './countries-list/countries-list.componen
     MatInputModule,
     MatDialogModule,
     MatGridListModule,
+    MatCardModule,
+    FormsModule,
     RouterModule.forRoot([
       {
         path: '',
         component: HomeComponent
       },
-      {
-        path: 'country/:countryCode',
-        component: CountryInfoComponent
-      },
+      // {
+      //   path: 'country/:countryCode',
+      //   component: CountryInfoComponent
+      // },
       {
         path: '**',
         component: NotFoundComponent
       }
     ]),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    // NgbModule.forRoot()
   ],
   providers: [
     CountryService,

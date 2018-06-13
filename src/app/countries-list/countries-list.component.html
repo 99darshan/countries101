@@ -1,10 +1,29 @@
-<mat-grid-list cols = "2" rowHeight = "2:1">
-  <mat-grid-tile
-    *ngFor = "let con of this.countries"
-    >
-    <div (click) = "onCountryClick(con)">
-      <h2>{{con.name}}</h2>
-      <img src={{con.flag}} height="100em" width="100em"/>
+  <!-- <mat-grid-list cols = "2" rowHeight = "2:1" class="country-list-container">
+    <mat-grid-tile class="country-grid-tile "
+      *ngFor = "let con of this.countries">
+
+      <mat-card (click) = "onCountryClick(con)" class="mat-card-wrapper"> -->
+        <!-- <mat-card-title>{{con.name}}</mat-card-title> -->
+        <!-- <h4>{{con.name}}</h4>
+        <mat-card-content>
+          <img src={{con.flag}} height="10em" width="10em"/>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list> -->
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-md-4 con-list-wrapper" *ngFor = "let con of this.countries">
+          <mat-card (click) = "onCountryClick(con)" class="card-wrapper">
+              <!-- <mat-card-title>{{con.name}}</mat-card-title> -->
+              <h5>{{con.name}}</h5>
+              <mat-card-content class="card-content">
+                <img src={{con.flag}} />
+              </mat-card-content>
+          </mat-card>
+      </div>
     </div>
-  </mat-grid-tile>
-</mat-grid-list>
+  </div>
+
+

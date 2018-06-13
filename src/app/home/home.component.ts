@@ -43,10 +43,13 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   public onSearchButtonClick(event: any): void {
     console.log('on clicked called');
+    // clear searched entry
     // console.log(this.data.name);
     this.service.fetchCountries(this.searchTerm)
                 .subscribe((response) => {
                   // this.searchedCountry = [];
+                  // set searchTerm to empty so that it will be cleared from the input field
+                  this.searchTerm = '';
                   console.log('response inside: ' + response.json());
                   this.searchedCountry = response.json();
                   this.isSearched = true;
@@ -63,8 +66,8 @@ export class HomeComponent implements OnInit, OnDestroy {
                   if (this.searchedCountry.length === 1 && this.isSearched) {
                     // show dialog of country info
                     let matDialogRef = this.matDialog.open(CountryInfoComponent, {
-                      // height: '150rem',
-                      // width: '150rem',
+                      height: '40%',
+                      width: '60%',
                       data: {country: this.searchedCountry[0]}
                     });
 
