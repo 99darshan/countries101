@@ -66,9 +66,9 @@ export class HomeComponent implements OnInit, OnDestroy {
                   if (this.searchedCountry.length === 1 && this.isSearched) {
                     // show dialog of country info
                     let matDialogRef = this.matDialog.open(CountryInfoComponent, {
-                      height: '40%',
-                      width: '60%',
-                      data: {country: this.searchedCountry[0]}
+                      height: '80vh',
+                      width: '100vw',
+                      data: { country: this.searchedCountry[0] }
                     });
 
                     //this.router.navigate(['country', this.searchedCountry[0].alpha2Code]);

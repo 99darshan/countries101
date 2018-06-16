@@ -4,13 +4,13 @@ body { margin: 0; }
 /* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
 /* @import "~bootstrap/dist/css/bootstrap.min.css"; */
 
-/* Margins */
-.margin-lr-lg {
-  margin-left: 1.4rem;
-  margin-right: 1.4rem;
-}
-
-.center-horz {
+.flex-container-center {
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
+
+.color-light{
+  background-color: beige;
+}
+

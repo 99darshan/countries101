@@ -10,7 +10,7 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 })
 export class CountryInfoComponent implements OnInit {
   // @Input() searchedCountry: object;
-
+  hasSameNativeName = false;
   public country = [];
   constructor(private dataShareService: DataShareService,
               private _route: ActivatedRoute,
@@ -25,7 +25,9 @@ export class CountryInfoComponent implements OnInit {
         console.log(con.alpha2Code + '------' + countryCode);
         return con.alpha2Code === countryCode;
       });
-    }); 
+    });
+
+    this.hasSameNativeName = this.data.country.name === this.data.country.nativeName;
   }
 
   // TODO: if searchData in dataShareService is null or empty redirect to homepage

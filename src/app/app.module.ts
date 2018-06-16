@@ -2,10 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatGridListModule } from '@angular/material/grid-list';
+// import { MatButtonModule } from '@angular/material/button';
+// import { MatInputModule } from '@angular/material/input';
+// import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
+// import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule, MatGridListModule, MatDialogModule, MAT_DIALOG_DATA, MatInputModule, MatButtonModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -39,6 +40,7 @@ import { MatCardModule } from '@angular/material';
     MatGridListModule,
     MatCardModule,
     FormsModule,
+    MatIconModule,
     RouterModule.forRoot([
       {
         path: '',

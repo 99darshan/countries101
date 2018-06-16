@@ -1,10 +1,12 @@
-<div class="center-horz">
-  <mat-form-field class="margin-lr-lg">
-    <input matInput type="text" placeholder="search country name" value={{searchTerm}} (input)="onSearchInputChange($event)" />
+<div class="home-container flex-container-center">
+  <!-- <img src="../../assets//120.jpg" class="img-fluid"/> -->
+</div>
+
+<div class="flex-container-center">
+  <mat-form-field class="mx-auto stretch-elem">
+    <input matInput type="text" placeholder="search country name..." value={{searchTerm}} (input)="onSearchInputChange($event)"/>
   </mat-form-field>
-  <br/>
-  <button mat-raised-button color = "primary" (click)="onSearchButtonClick($event)" class="margin-lr-lg">Search</button>
-  <br/>
+  <button mat-raised-button color= "accent" (click)="onSearchButtonClick($event)" class="mx-auto stretch-elem my-3">Search</button>
   <p>I typed {{searchTerm}}!!</p>
 </div>
   

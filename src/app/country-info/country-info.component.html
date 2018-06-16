@@ -13,12 +13,57 @@
         <img src = {{searchedCountry[0].flag}} />
       </div> -->
 
+  <div mat-dialog-content class="color-light">
 
-  
-  
-  <div mat-dialog-content>
-    <h1 mat-dialog-title>{{data.country.name}}</h1>
-    <img src = {{data.country.flag}} height="100rem" width="100rem" />
+    <mat-card class="mx-auto my-5 card-icon flag-card">
+      <img mat-card-image class="flag-img" src={{data.country.flag}}/>
+      
+      <h1 *ngIf = "hasSameNativeName; else showBothNames">{{data.country.name}}</h1>
+
+      <ng-template #showBothNames>
+        <h1>
+          {{data.country.name}} / {{data.country.nativeName}}
+        </h1>
+      </ng-template>
+    </mat-card>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <mat-card class="mb-2">
+              <h4> <mat-icon class="fas fa-globe fa-lg mr-1"></mat-icon> {{data.country.capital}}</h4>
+              <p> Capital </p>
+          </mat-card>
+          <mat-card class="mb-2"> 
+              <div class="my-3 mr-1 float-left card-icon">
+                <mat-icon class="fas fa-user fa-3x"></mat-icon> 
+              </div>
+              <div class="ml-5 card-content">
+                <h4>{{data.country.timezones}}</h4>
+                <p> Time Zones </p>
+              </div>
+          </mat-card>
+          <mat-card class="mb-2">
+              <h4><i class="fas fa-user"></i> {{data.country.topLevelDomain}}</h4>
+              <p>Domain</p>
+          </mat-card>
+
+            <mat-card class="mb-2">
+              <h4>{{data.country.region}}</h4>
+              <p>region</p>
+            </mat-card>
+            <mat-card class="mb-2">
+              <h4>{{data.country.area}}</h4>
+              <p>Area</p>
+            </mat-card>
+            <mat-card class="mb-2">
+              <h4>{{data.country.region}}</h4>
+              <p>region</p>
+            </mat-card>
+      </div>
+    </div>
+
     <mat-dialog-actions>
       <button mat-button [mat-dialog-close] = 'true'>Close</button>
     </mat-dialog-actions>

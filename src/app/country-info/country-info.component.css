@@ -1,3 +1,20 @@
-mat-dialog-content{
+.mat-dialog-content{
   border: 1px solid red;
+}
+
+.card-icon{
+  border: 1px solid blue;
+  color:mediumpurple;
+}
+
+.card-content {
+  border: 1px solid green;
+  color:green;
+  box-sizing: border-box;
+  height: auto;
+  width: auto;
+}
+
+.flag-card{
+  width: 50vw;
 }

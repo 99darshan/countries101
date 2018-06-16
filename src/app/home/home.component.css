@@ -1,0 +1,17 @@
+.home-container{
+  border: 1px solid red;
+  background-image: url('/assets/120.jpg');
+  width: 100vw;
+  height: 70vh;
+  /* background-size: contain; */
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  /* background-attachment: fixed; */
+}
+
+.stretch-elem {
+  width: 50vw;
+  height: 3rem;
+}
+
