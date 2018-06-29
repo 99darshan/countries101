@@ -19,6 +19,7 @@ import { DataShareService } from './services/data-share.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CountriesListComponent } from './countries-list/countries-list.component';
 import { MatCardModule } from '@angular/material';
+import { AgmCoreModule } from '@agm/core'; // angular maps
 
 @NgModule({
   declarations: [
@@ -41,6 +42,11 @@ import { MatCardModule } from '@angular/material';
     MatCardModule,
     FormsModule,
     MatIconModule,
+    AgmCoreModule.forRoot({
+      // apiKey: 'GOOGLE_MAPS_API_KEY'
+      apiKey: 'AIzaSyCzBxjKpRyxCsS1JDobQGG2hxjrizECD88'
+
+    }),
     RouterModule.forRoot([
       {
         path: '',

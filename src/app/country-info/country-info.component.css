@@ -3,7 +3,7 @@
 }
 
 .card-icon{
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   color:mediumpurple;
 }
 
@@ -17,4 +17,14 @@
 
 .flag-card{
   width: 50vw;
+}
+
+/* color TODO: changes */
+.flag-img {
+  border-bottom: 2px solid palevioletred;
+}
+
+agm-map {
+  height: 250px;
+  width: 100%;
 }
