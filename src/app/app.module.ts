@@ -1,12 +1,15 @@
+import { NotFoundError } from './common/not-found-error';
+import { AppError } from './common/app-error';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 // import { MatButtonModule } from '@angular/material/button';
 // import { MatInputModule } from '@angular/material/input';
 // import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
 // import { MatGridListModule } from '@angular/material/grid-list';
-import { MatIconModule, MatGridListModule, MatDialogModule, MAT_DIALOG_DATA, MatInputModule, MatButtonModule } from '@angular/material';
+import { MatIconModule, MatGridListModule, MatDialogModule, MAT_DIALOG_DATA, MatInputModule, MatButtonModule, MatTooltipModule, MatSnackBarModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -27,7 +30,7 @@ import { AgmCoreModule } from '@agm/core'; // angular maps
     HomeComponent,
     CountryInfoComponent,
     NotFoundComponent,
-    CountriesListComponent
+    CountriesListComponent,
   ],
   entryComponents: [
     CountryInfoComponent
@@ -40,10 +43,14 @@ import { AgmCoreModule } from '@agm/core'; // angular maps
     MatDialogModule,
     MatGridListModule,
     MatCardModule,
+    MatTooltipModule,
+    MatSnackBarModule,
     FormsModule,
     MatIconModule,
+    HttpClientModule,
     AgmCoreModule.forRoot({
       // apiKey: 'GOOGLE_MAPS_API_KEY'
+      // TODO: add API_key to environment variable or app secret
       apiKey: 'AIzaSyCzBxjKpRyxCsS1JDobQGG2hxjrizECD88'
 
     }),

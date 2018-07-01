@@ -6,188 +6,204 @@
   </p>
   <img src={{country[0].flag}} height="100rem" width="100rem" />
 </div> -->
-    <!-- only display if searchedCountry is defined or has more than one entry -->
-    <!-- <div *ngIf="searchedCountry.length > 0">
+<!-- only display if searchedCountry is defined or has more than one entry -->
+<!-- <div *ngIf="searchedCountry.length > 0">
         <h1>{{searchedCountry[0].name}}</h1>
         <h4>{{searchedCountry[0].nativeName}}</h4>
         <img src = {{searchedCountry[0].flag}} />
       </div> -->
+<div mat-dialog-title>
+  <mat-dialog-actions align="end" class="mb-1 p-0">
+    <h3 class="float-left mr-4 my-auto">{{data.country.name}}</h3>
+    <button mat-icon-button [mat-dialog-close]="true" color="accent" class="d-block my-auto animated rotateIn">
+      <mat-icon class="fa fa-2x fa-times-circle d-block mx-auto"></mat-icon>
+    </button>
+  </mat-dialog-actions>
 
-  <div mat-dialog-content class="color-light">
+  <div>
 
-    <mat-card class="mx-auto my-5 card-icon flag-card">
-      <img mat-card-image src={{data.country.flag}}/>
-    </mat-card>
-    
-    <mat-card class="mx-auto my-5 flag-card flag-img card-icon">
-      <h1 *ngIf = "hasSameNativeName; else showBothNames">{{data.country.name}}</h1>
+    <div mat-dialog-content class="">
+      <!-- <mat-card class="mx-auto my-5 flag-card p-0">
+    </mat-card> -->
+      <!-- flag -->
+      <img mat-card-image class="mx-auto my-5 w-50 d-block animated fadeInLeft" src={{data.country.flag}}/>
 
-      <ng-template #showBothNames>
-        <h1>
-          {{data.country.name}} / {{data.country.nativeName}}
-        </h1>
-      </ng-template>
-    </mat-card>
+      <!-- information cards divs -->
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <!-- name -->
+            <mat-card class="mb-3 mat-elevation-z8">
+              <h3 *ngIf="hasSameNativeName; else showBothNames">{{data.country.name}}</h3>
 
-    <!-- information cards divs -->
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <!-- Capital -->
-          <mat-card class="mb-2">
-              <div class="my-3 mr-1 float-left card-icon">
-                  <mat-icon class="fas fa-building fa-2x"></mat-icon> 
-                </div>
-                <div class="ml-5 card-content">
-                  <h4>{{data.country.capital}}</h4>
-                  <p> Capital </p>
-                </div>
-          </mat-card>
+              <ng-template #showBothNames>
+                <h3>
+                  {{data.country.name}} / {{data.country.nativeName}}
+                </h3>
+              </ng-template>
+            </mat-card>
+          </div>
 
-          <!-- timezones -->
-          <mat-card class="mb-2"> 
-              <div class="my-3 mr-1 float-left card-icon">
-                <mat-icon class="fas fa-user fa-2x"></mat-icon> 
+          <div class="col-12 col-md-6">
+            <!-- Capital -->
+            <mat-card *ngIf="data.country.capital !== null" class="mb-3 mat-elevation-z4">
+              <div class="my-3 mr-2 float-left ">
+                <mat-icon class="fas fa-building fa-2x"></mat-icon>
               </div>
               <div class="ml-5 card-content">
-                <h4>{{data.country.timezones}}</h4>
+                <h4>{{data.country.capital}}</h4>
+                <p> Capital </p>
+              </div>
+            </mat-card>
+
+            <!-- timezones -->
+            <mat-card *ngIf="data.country.timezones.length > 0" class="mb-3 mat-elevation-z8">
+              <div class="my-3 mr-2 float-left ">
+                <mat-icon class="fas fa-clock fa-2x"></mat-icon>
+              </div>
+              <div class="ml-5 card-content">
+                <h4 *ngFor="let timezone of data.country.timezones" class="d-inline-block mr-1">{{timezone}}</h4>
                 <p> Time Zones </p>
               </div>
-          </mat-card>
+            </mat-card>
 
-          <!-- tld -->
-          <mat-card class="mb-2">
-              <div class="my-3 mr-1 float-left card-icon">
+            <!-- tld -->
+            <mat-card class="mb-3 mat-elevation-z4">
+              <div class="my-3 mr-2 float-left">
                 <mat-icon class="fas fa-at fa-2x"></mat-icon>
               </div>
               <div class="ml-5 card-content">
                 <h4>{{data.country.topLevelDomain}}</h4>
                 <p> Top Level Domain </p>
               </div>
-          </mat-card>
+            </mat-card>
 
-          <!-- region -->
-          <mat-card class="mb-2">
+            <!-- region -->
+            <mat-card class="mb-3 mat-elevation-z8">
 
-            <div class="my-3 mr-1 float-left card-icon">
+              <div class="my-3 mr-2 float-left">
                 <mat-icon class="fas fa-globe fa-2x"></mat-icon>
               </div>
               <div class="ml-5 card-content">
                 <h4>{{data.country.region}}</h4>
                 <p> Region </p>
               </div>
-          </mat-card>
+            </mat-card>
 
-          <!-- Area -->
-          <mat-card class="mb-2">
-
-            <div class="my-3 mr-1 float-left card-icon">
+            <!-- Area -->
+            <mat-card *ngIf="data.country.area !== null" class="mb-3 mat-elevation-z4">
+              <div class="my-3 mr-2 float-left">
                 <mat-icon class="fas fa-chart-area fa-2x"></mat-icon>
               </div>
               <div class="ml-5 card-content">
                 <h4>{{data.country.area}}</h4>
                 <p> Area </p>
               </div>
-          </mat-card>
-          
-          <!-- sub-region -->
-          <mat-card class="mb-2">
-            <div class="my-3 mr-1 float-left card-icon">
+            </mat-card>
+
+            <!-- sub-region -->
+            <mat-card *ngIf="data.country.subregion !== null" class="mb-3 mat-elevation-z8">
+              <div class="my-3 mr-2 float-left ">
                 <mat-icon class="fas fa-globe fa-2x"></mat-icon>
               </div>
               <div class="ml-5 card-content">
                 <h4>{{data.country.subregion}}</h4>
                 <p> Sub-region </p>
               </div>
-          </mat-card>
+            </mat-card>
 
-          <!-- population -->
-          <mat-card class="mb-2">
-            <div class="my-3 mr-1 float-left card-icon">
-              <mat-icon class="fas fa-users fa-2x"></mat-icon>
-            </div>
-            <div class="ml-5 card-content">
-              <h4>{{data.country.population}}</h4>
-              <p> population </p>
-            </div>
-          </mat-card>
+          </div>
 
-          <!-- country codes -->
-          <mat-card class="mb-2">
-            <div class="my-3 mr-1 float-left card-icon">
-              <mat-icon class="fas fa-code fa-2x"></mat-icon>
-            </div>
-            <div class="ml-5 card-content">
-              <h4>{{data.country.alpha2Code}} / {{data.country.alpha3Code}}</h4>
-              <p> Country Code </p>
-            </div>
-          </mat-card>
+          <div class="col-12 col-md-6">
+            <!-- population -->
+            <mat-card *ngIf="data.country.population !== null" class="mb-3 mat-elevation-z4">
+              <div class="my-3 mr-2 float-left ">
+                <mat-icon class="fas fa-user fa-2x"></mat-icon>
+              </div>
+              <div class="ml-5 card-content">
+                <h4>{{data.country.population}}</h4>
+                <p> population </p>
+              </div>
+            </mat-card>
 
-          <!-- Calling codes -->
-          <mat-card class="mb-2">
-            <div class="my-3 mr-1 float-left card-icon">
-              <mat-icon class="fas fa-phone fa-2x"></mat-icon>
-            </div>
-            <div class="ml-5 card-content">
-              <h4>{{data.country.callingCodes}}</h4>
-              <p> Calling Codes </p>
-            </div>
-          </mat-card>
+            <!-- country codes -->
+            <mat-card class="mb-3 mat-elevation-z8">
+              <div class="my-3 mr-2 float-left ">
+                <mat-icon class="fas fa-file-code fa-2x"></mat-icon>
+              </div>
+              <div class="ml-5 card-content">
+                <h4>{{data.country.alpha2Code}} / {{data.country.alpha3Code}}</h4>
+                <p> Country Code </p>
+              </div>
+            </mat-card>
 
-          <!-- gini -->
-          <mat-card class="mb-2">
-            <div class="my-3 mr-1 float-left card-icon">
-              <mat-icon class="fas fa-hand-holding-usd fa-2x"></mat-icon>
-            </div>
-            <div class="ml-5 card-content">
-              <h4>{{data.country.gini}}</h4>
-              <p> Gini </p>
-            </div>
-          </mat-card>
+            <!-- Calling codes -->
+            <mat-card *ngIf="data.country.callingCodes.length > 0" class="mb-3 mat-elevation-z4">
+              <div class="my-3 mr-2 float-left ">
+                <mat-icon class="fas fa-mobile fa-2x"></mat-icon>
+              </div>
+              <div class="ml-5 card-content">
+                <h4>{{data.country.callingCodes}}</h4>
+                <p> Calling Codes </p>
+              </div>
+            </mat-card>
 
-          <!-- currencies -->
-          <mat-card class="mb-2">
-            <div class="my-3 mr-1 float-left card-icon">
-              <mat-icon class="fas fa-money-bill fa-2x"></mat-icon>
-            </div>
-            <div class="ml-5 card-content">
+            <!-- gini -->
+            <mat-card *ngIf="data.country.gini !== null" class="mb-3 mat-elevation-z8">
+              <div class="my-3 mr-2 float-left ">
+                <mat-icon class="fas fa-hand-holding-usd fa-2x"></mat-icon>
+              </div>
+              <div class="ml-5 card-content">
+                <h4>{{data.country.gini}}</h4>
+                <p> Gini </p>
+              </div>
+            </mat-card>
 
-              <h4 *ngFor = "let cur of data.country.currencies">
-                {{cur.name}} / {{cur.code}}
-              </h4>
-              <p> Currencies </p>
-            </div>
-          </mat-card>
+            <!-- currencies -->
+            <mat-card *ngIf="data.country.currencies.length > 0" class="mb-3 mat-elevation-z4">
+              <div class="my-3 mr-2 float-left ">
+                <mat-icon class="fas fa-coins fa-2x"></mat-icon>
+              </div>
+              <div class="ml-5 card-content">
+                <h4 *ngFor="let cur of data.country.currencies">
+                  {{cur.name}} / {{cur.code}}
+                </h4>
+                <p> Currencies </p>
+              </div>
+            </mat-card>
 
-          <!-- borders -->
-          <mat-card *ngIf = "data.country.borders.length > 0" class="mb-2">
-            <div class="my-3 mr-1 float-left card-icon">
-              <mat-icon class="fas fa-th fa-2x"></mat-icon>
-            </div>
-            <div class="ml-5 card-content"> 
-                <div *ngFor="let con of borderFlags" class="ml-2 mb-2 d-inline-block">
-                  <img  src= {{con.flag}} height="20em" width="20em"
-                  (click) = "onFlagClick($event, con)"  /> 
-                </div>         
-              <p> Neighbors </p>
-            </div>
-          </mat-card>
+            <!-- borders -->
+            <mat-card *ngIf="data.country.borders.length > 0" class="mb-3 mat-elevation-z8">
+              <div class="my-3 mr-2 float-left ">
+                <mat-icon class="fas fa-th fa-2x"></mat-icon>
+              </div>
+              <div class="ml-5 card-content">
+                <div *ngFor="let con of borderCountries" class="ml-2 mb-2 d-inline-block">
 
-          <!-- location -->
-          <mat-card class="mb-2">             
-              <agm-map [latitude] = "latitude" [longitude] = "longitude" class="maps">
-                  <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+                  <!-- displayed as image, all flags are scaled down properly -->
+                  <a (click)="onFlagClick($event, con)">
+                    <img src={{con.flag}} height="20em" width="20em" />
+                  </a>
+                  <!-- displayed as mat-icons, some flag maynot scale down properly -->
+                  <!-- <button mat-icon-button matTooltip={{con.name}} color="accent" (click) = "onFlagClick($event, con)">
+                      <mat-icon svgIcon={{con.alpha2Code}}></mat-icon>
+                    </button> -->
+                </div>
+                <p> Neighbors </p>
+              </div>
+            </mat-card>
+          </div>
+
+
+          <div class="col-12">
+            <!-- location -->
+            <mat-card class="mb-3 mat-elevation-z4 p-0">
+              <agm-map [latitude]="latitude" [longitude]="longitude" class="maps">
+                <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
               </agm-map>
-          </mat-card>
+            </mat-card>
+          </div>
 
+        </div>
       </div>
-    </div> 
-    <!-- end of information cards container divs -->
-
-
-    <mat-dialog-actions>
-      <button mat-button [mat-dialog-close] = 'true'>Close</button>
-    </mat-dialog-actions>
-  </div>
-
-
+    </div>

@@ -26,8 +26,8 @@ export class CountriesListComponent implements OnInit {
   onCountryClick(country) {
     console.log('country clicked: ' + country.alpha2Code);
     this.matDialog.open(CountryInfoComponent, {
-      height: '80vh',
       width: '100vw',
+      panelClass: 'custom-mat-dialog-container',
       data: {country: country}
     });
   }

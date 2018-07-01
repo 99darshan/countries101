@@ -1,5 +1,4 @@
 .home-container{
-  border: 1px solid red;
   background-image: url('/assets/120.jpg');
   width: 100vw;
   height: 70vh;
@@ -8,10 +7,18 @@
   background-repeat: no-repeat;
   background-position: center;
   /* background-attachment: fixed; */
+
 }
 
-.stretch-elem {
-  width: 50vw;
-  height: 3rem;
+.flex-container-center {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
+.search-button {
+  height: 4rem;
+  font-size: 2rem;
+  background-color: var(--cp1-dark-red);
+  font-family: 'Bree Serif', serif;
+}

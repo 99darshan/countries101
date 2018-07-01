@@ -12,13 +12,13 @@
     </mat-grid-tile>
   </mat-grid-list> -->
 
-  <div class="container-fluid">
+  <div class="container">
     <div class="row">
-      <div class="col-12 col-md-4 con-list-wrapper" *ngFor = "let con of this.countries">
-          <mat-card (click) = "onCountryClick(con)" class="card-wrapper">
-              <!-- <mat-card-title>{{con.name}}</mat-card-title> -->
-              <h5>{{con.name}}</h5>
-              <mat-card-content class="card-content">
+      <div class="col-12 col-md-4 mt-3" *ngFor = "let con of this.countries">
+          <mat-card (click) = "onCountryClick(con)" class="h-100">
+              <mat-card-title><h3>{{con.name}}</h3></mat-card-title>
+              <!-- <h5>{{con.name}}</h5> -->
+              <mat-card-content>
                 <img src={{con.flag}} />
               </mat-card-content>
           </mat-card>

@@ -1,16 +1,63 @@
 /* You can add global styles to this file, and also import other style files */
 
-body { margin: 0; }
 /* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
 /* @import "~bootstrap/dist/css/bootstrap.min.css"; */
 
-.flex-container-center {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+/* animate css cdn */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css');
+
+/* custom fonts */
+@import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz');
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif|Yanone+Kaffeesatz');
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif|Pacifico|Yanone+Kaffeesatz');
+
+
+body { 
+  margin: 0;
+  background-color:  #FDFAF5;
 }
 
-.color-light{
-  background-color: beige;
+.custom-mat-dialog-container mat-dialog-container{
+   padding: 0;
+  /* padding-top: 0;
+  padding-bottom: 0; */
+  overflow: hidden;
+  background: var(--cp2-light-black);
+}
+
+.custom-snackbar mat-snack-bar-container {
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+h1, h2, h3, h4, h5, h6, mat-icon{
+  /* font-family: 'Yanone Kaffeesatz', sans-serif; */
+  font-family: 'Bree Serif', serif;
+}
+
+p {
+  font-family: 'Pacifico', cursive;
+  font-size: 0.8rem;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* variables for colors */
+/* TODO: use fonts as variables */
+
+:root{
+  --cp1-dark-red: #E85A4F;
+  --cp1-light-red: #E98074;
+  --cp1-light-black:#8E8D8A;
+  --cp1-dark-brown: #D8C3A5;
+  --cp1-light-brown: #EAE7DC;
+
+  --cp2-dark-black: #1d1e22;;
+  --cp2-light-black: #393f4d; 
+  --cp2-dark-brown: #feda6a;
+  --cp2-silver: #d4d4dc;
 }
 
