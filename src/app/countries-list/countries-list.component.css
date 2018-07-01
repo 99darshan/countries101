@@ -13,3 +13,8 @@ mat-card:hover{
   transition: background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
   /* background-color: var(--cp1-light-red); */
 }
+
+h4 {
+  display: inline;
+  border-bottom: 4px solid var(--cp1-dark-red);
+}

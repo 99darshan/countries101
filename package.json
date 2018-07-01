@@ -27,6 +27,7 @@
     "angular-cli-ghpages": "^0.5.2",
     "bootstrap": "^4.1.1",
     "core-js": "^2.5.4",
+    "font-awesome": "^4.7.0",
     "g": "^2.0.1",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"

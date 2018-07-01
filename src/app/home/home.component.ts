@@ -61,14 +61,12 @@ export class HomeComponent implements OnInit, OnDestroy {
                     this.isSearched = true;
                     // set the state in data share service done in destroy
                     this.shareDataService.searchedData = this.searchedCountry;
-
-
-                    // navigate to 404 if no country is found
+                    // NOTE: REST country api will return with 404 status code if no countries are found
+                    // hence control shouldn't reach inside this code block, in place just for fail safe
                     if (this.searchedCountry.length === 0 && this.isSearched) {
                       this.router.navigate(['**']);
                     }
-                    // If only one country is found for the search term
-                    // navigate to that country info route
+                    // If only one country is found for the search term show the country info dialog
                     if (this.searchedCountry.length === 1 && this.isSearched) {
                       // show dialog of country info
                       const matDialogRef = this.matDialog.open(CountryInfoComponent, {
@@ -76,9 +74,14 @@ export class HomeComponent implements OnInit, OnDestroy {
                         panelClass: 'custom-mat-dialog-container',
                         data: { country: this.searchedCountry[0] }
                       });
-
+                      this.displayToastMessage(`${this.searchedCountry.length} Country found.`, 'Close');
                       // this.router.navigate(['country', this.searchedCountry[0].alpha2Code]);
                       // this.router.navigateByUrl('country/ne');
+                    }
+
+                    // if more than 1 country is returned by API, then country-list component is rendered from view
+                    if (this.searchedCountry.length > 1 && this.isSearched) {
+                      this.displayToastMessage(`${this.searchedCountry.length} Countries found.`, 'Close');
                     }
 
                     // if search result contains more than one country display modal
@@ -95,6 +98,7 @@ export class HomeComponent implements OnInit, OnDestroy {
                   console.log(error);
                   if (error instanceof NotFoundError) {
                     this.displayToastMessage(`No countries found for "${this.searchTerm}"`, 'Close');
+                    this.router.navigate(['**']);
                   } else {
                     this.displayToastMessage('Unexpected Error Occured!', 'Close');
                   }
@@ -110,7 +114,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   private displayToastMessage(message: string, action: string) {
     this._toast.open(message, action, {
-      duration: 2000,
+      duration: 1500,
       panelClass: 'custom-snackbar'
     });
   }

@@ -9,7 +9,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 // import { MatInputModule } from '@angular/material/input';
 // import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
 // import { MatGridListModule } from '@angular/material/grid-list';
-import { MatIconModule, MatGridListModule, MatDialogModule, MAT_DIALOG_DATA, MatInputModule, MatButtonModule, MatTooltipModule, MatSnackBarModule } from '@angular/material';
+import { MatIconModule, MatGridListModule, MatDialogModule, MAT_DIALOG_DATA, MatInputModule, MatButtonModule, MatTooltipModule, MatSnackBarModule, MatToolbarModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -47,6 +47,7 @@ import { AgmCoreModule } from '@agm/core'; // angular maps
     MatSnackBarModule,
     FormsModule,
     MatIconModule,
+    MatToolbarModule,
     HttpClientModule,
     AgmCoreModule.forRoot({
       // apiKey: 'GOOGLE_MAPS_API_KEY'

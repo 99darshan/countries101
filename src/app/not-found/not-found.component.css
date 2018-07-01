@@ -147,6 +147,7 @@ a.more-link {
 
 .link-container {
   text-align: center;
+  min-height: 500px;
 }
 
 .home-button {

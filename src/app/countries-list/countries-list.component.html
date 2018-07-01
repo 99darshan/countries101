@@ -12,8 +12,10 @@
     </mat-grid-tile>
   </mat-grid-list> -->
 
+
   <div class="container">
-    <div class="row">
+    <h4>Countries</h4>
+    <div class="row mt-2">
       <div class="col-12 col-md-4 mt-3" *ngFor = "let con of this.countries">
           <mat-card (click) = "onCountryClick(con)" class="h-100">
               <mat-card-title><h3>{{con.name}}</h3></mat-card-title>

@@ -11,6 +11,13 @@
 @import url('https://fonts.googleapis.com/css?family=Bree+Serif|Yanone+Kaffeesatz');
 @import url('https://fonts.googleapis.com/css?family=Bree+Serif|Pacifico|Yanone+Kaffeesatz');
 
+/* font awesome imported in index.html from CDN, 
+* Also istalled via npm packages and added in angular.json, not sure why but had to add in two places 
+* for all icons to be available
+*/
+/* @import url('https://use.fontawesome.com/releases/v5.1.0/css/brands.css');
+@import url('https://use.fontawesome.com/releases/v5.1.0/css/all.css');
+@import url('https://use.fontawesome.com/releases/v5.1.0/css/fontawesome.css'); */
 
 body { 
   margin: 0;

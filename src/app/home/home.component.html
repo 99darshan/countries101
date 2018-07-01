@@ -1,4 +1,14 @@
-<div class="home-container flex-container-center">
+<!-- <mat-toolbar>
+    <mat-toolbar-row>
+      <span>Angular Countries</span>
+      <mat-icon class="fa fa-2x fa-github" aria-hidden="false"></mat-icon>
+    </mat-toolbar-row>
+</mat-toolbar> -->
+
+<div class="home-container">
+  <a href="http://www.google.com/" target="_blank">
+    <mat-icon class="fa fa-4x fa-github-square github animated rotateIn"></mat-icon>
+  </a>
   <!-- <img src="../../assets//120.jpg" class="img-fluid"/> -->
 </div>
 
@@ -23,9 +33,6 @@
     <!-- display modal of countries-list if result contains more than one country -->
     <app-countries-list [countries] = "searchedCountry"></app-countries-list>
   </div>
-
-
-
 
   <!-- <div *ngIf = "searchedCountry.length <= 0 && isSearched">
     redirect to not found route
