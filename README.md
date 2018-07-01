@@ -1,9 +1,8 @@
+# [Live Demo Hosted on Firebase](https://countries101-1529239188799.firebaseapp.com/)
+
 # Countries101
 
 Angular App which lays out basic information about countries around the globe.
-
-Live Demo Hosted on Firebase:
-https://countries101-1529239188799.firebaseapp.com/
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
 
@@ -18,3 +17,4 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 
 
+ 
