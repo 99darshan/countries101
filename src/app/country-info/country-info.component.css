@@ -11,7 +11,6 @@ agm-map {
 }
 
 mat-card {
-  /* background-color: #feda6a; */
   background-color: var(--cp1-dark-red);
 }
 
@@ -21,15 +20,6 @@ mat-card:hover{
   transition: background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
   /* background-color: var(--cp1-light-red); */
 }
-
-/* animated is a class from animate.css, ovverride the animated class, since we only want animation on mouse hovers, use infinite class along with animated and animation name */
-/* .animated {
-  animation-play-state: paused;
-}
-
-.animated:hover{
-  animation-play-state: running;
-} */
 
 mat-dialog-actions {
   background-color: var(--cp2-dark-black);

@@ -5,21 +5,18 @@ import {Router} from '@angular/router';
 import { MatDialog, MatDialogRef, MatSnackBar, MatSnackBarConfig } from '@angular/material';
 
 import { CountryService } from '../services/country.service';
-import { DataShareService } from '../services/data-share.service';
 import { CountriesListComponent } from '../countries-list/countries-list.component';
 import { CountryInfoComponent } from '../country-info/country-info.component';
 import { Overlay } from '@angular/cdk/overlay';
 
-// import * as countries from '../../data/countries.json';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit {
   public searchTerm  = '';
-  // public data = require('../../data/countries.json');
   public searchedCountry = [];
   isSearched = false;
 
@@ -27,18 +24,11 @@ export class HomeComponent implements OnInit, OnDestroy {
               private _overlay: Overlay,
               private service: CountryService,
               private _toast: MatSnackBar,
-              private shareDataService: DataShareService,
               public matDialog: MatDialog) {
 
   }
 
   ngOnInit() {
-    console.log('state on home init: ' + this.shareDataService.searchedData);
-  }
-
-  ngOnDestroy(): void {
-    // this.shareDataService.searchedData = this.searchedCountry;
-    console.log('state on home destry: ' + this.shareDataService.searchedData.length + '==' + this.shareDataService.searchedData);
   }
 
   public onSearchInputChange(event: any): void {
@@ -53,14 +43,11 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.service.fetchCountries(this.searchTerm)
                 .subscribe(
                   (response) => {
-                    // this.searchedCountry = [];
                     // set searchTerm to empty so that it will be cleared from the input field
                     this.searchTerm = '';
                     console.log('response inside: ' + response.json());
                     this.searchedCountry = response.json();
                     this.isSearched = true;
-                    // set the state in data share service done in destroy
-                    this.shareDataService.searchedData = this.searchedCountry;
                     // NOTE: REST country api will return with 404 status code if no countries are found
                     // hence control shouldn't reach inside this code block, in place just for fail safe
                     if (this.searchedCountry.length === 0 && this.isSearched) {
@@ -83,18 +70,8 @@ export class HomeComponent implements OnInit, OnDestroy {
                     if (this.searchedCountry.length > 1 && this.isSearched) {
                       this.displayToastMessage(`${this.searchedCountry.length} Countries found.`, 'Close');
                     }
-
-                    // if search result contains more than one country display modal
-                    // if (this.searchedCountry.length > 1 && this.isSearched) {
-
-
-
-                    //   // TODO: matdialogRef close
-                    // }
                 },
                 (error: AppError) => {
-                  // TODO: handle Errors
-                  // display toast and log errors
                   console.log(error);
                   if (error instanceof NotFoundError) {
                     this.displayToastMessage(`No countries found for "${this.searchTerm}"`, 'Close');
@@ -103,13 +80,6 @@ export class HomeComponent implements OnInit, OnDestroy {
                     this.displayToastMessage('Unexpected Error Occured!', 'Close');
                   }
                 });
-
-    console.log('outside: ' + this.searchedCountry);
-    console.log('length of searched items: ' + this.searchedCountry.length);
-
-    // this.searchedCountry = this.data.filter(con =>
-    //   con.name === this.searchTerm
-    // );
   }
 
   private displayToastMessage(message: string, action: string) {

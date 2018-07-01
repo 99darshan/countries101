@@ -1,17 +1,3 @@
-<!-- <app-home></app-home>
-<div *ngIf = "country.length > 0">
-
-  <p>  
-    country-info works! Country is {{country[0].name}}
-  </p>
-  <img src={{country[0].flag}} height="100rem" width="100rem" />
-</div> -->
-<!-- only display if searchedCountry is defined or has more than one entry -->
-<!-- <div *ngIf="searchedCountry.length > 0">
-        <h1>{{searchedCountry[0].name}}</h1>
-        <h4>{{searchedCountry[0].nativeName}}</h4>
-        <img src = {{searchedCountry[0].flag}} />
-      </div> -->
 <div mat-dialog-title>
   <mat-dialog-actions align="end" class="mb-1 p-0">
     <h3 class="float-left mr-4 my-auto">{{data.country.name}}</h3>
@@ -23,9 +9,6 @@
   <div>
 
     <div mat-dialog-content class="">
-      <!-- <mat-card class="mx-auto my-5 flag-card p-0">
-    </mat-card> -->
-      <!-- flag -->
       <img mat-card-image class="mx-auto my-5 w-50 d-block animated fadeInLeft" src={{data.country.flag}}/>
 
       <!-- information cards divs -->

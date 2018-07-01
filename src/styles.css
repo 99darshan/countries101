@@ -1,7 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-/* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
-/* @import "~bootstrap/dist/css/bootstrap.min.css"; */
 
 /* animate css cdn */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css');
@@ -11,13 +9,6 @@
 @import url('https://fonts.googleapis.com/css?family=Bree+Serif|Yanone+Kaffeesatz');
 @import url('https://fonts.googleapis.com/css?family=Bree+Serif|Pacifico|Yanone+Kaffeesatz'); */
 
-/* font awesome imported in index.html from CDN, 
-* Also istalled via npm packages and added in angular.json, not sure why but had to add in two places 
-* for all icons to be available
-*/
-/* @import url('https://use.fontawesome.com/releases/v5.1.0/css/brands.css');
-@import url('https://use.fontawesome.com/releases/v5.1.0/css/all.css');
-@import url('https://use.fontawesome.com/releases/v5.1.0/css/fontawesome.css'); */
 
 body { 
   margin: 0;

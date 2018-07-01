@@ -1,10 +1,7 @@
 import { Component, OnInit, Input, Inject } from '@angular/core';
-import { DataShareService } from '../services/data-share.service';
-import { ActivatedRoute, ParamMap } from '@angular/router';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { MatDialog, MatDialogRef, MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
-// import * as countries from '../../data/countries.json';
 
 @Component({
   selector: 'app-country-info',
@@ -19,9 +16,7 @@ export class CountryInfoComponent implements OnInit {
   // This is a local copy of data of all countries response from rest countries
   countriesJson = require('../../data/countries.json');
   borderCountries = [];
-  // public country = [];
-  constructor(// private dataShareService: DataShareService,
-              // private _route: ActivatedRoute,
+  constructor(
               private _matDialog: MatDialog,
               private _matDialogRef: MatDialogRef<CountryInfoComponent>,
               private _matIconRegistry: MatIconRegistry,
@@ -29,19 +24,6 @@ export class CountryInfoComponent implements OnInit {
               @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
-
-    // this.countriesJson = require('../../data/countries.json');
-
-    // this._route.paramMap.subscribe((params: ParamMap) => {
-    //   // this.country = this.dataShareService.searchedData;
-    //   const countryCode = params.get('countryCode');
-
-    //   this.country = this.dataShareService.searchedData.filter((con) => {
-    //     console.log(con.alpha2Code + '------' + countryCode);
-    //     return con.alpha2Code === countryCode;
-    //   });
-    // });
-
     this.hasSameNativeName = this.data.country.name === this.data.country.nativeName;
     this.latitude = this.data.country.latlng[0];
     this.longitude = this.data.country.latlng[1];
@@ -89,8 +71,4 @@ export class CountryInfoComponent implements OnInit {
       data: { country: country }
     });
   }
-
-  // TODO: if searchData in dataShareService is null or empty redirect to homepage
-  // TODO: verify if the routed alpha2Code matches with the country, else show 404
-
 }

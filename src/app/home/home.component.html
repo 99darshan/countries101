@@ -1,15 +1,8 @@
-<!-- <mat-toolbar>
-    <mat-toolbar-row>
-      <span>Angular Countries</span>
-      <mat-icon class="fa fa-2x fa-github" aria-hidden="false"></mat-icon>
-    </mat-toolbar-row>
-</mat-toolbar> -->
 
 <div class="home-container">
   <a href="https://github.com/99darshan/countries101" target="_blank">
     <mat-icon class="fa fa-4x fa-github-square github animated rotateIn"></mat-icon>
   </a>
-  <!-- <img src="../../assets//120.jpg" class="img-fluid"/> -->
 </div>
 
 <div class="flex-container-center">
@@ -17,34 +10,10 @@
     <input matInput type="text" placeholder="search country name..." value={{searchTerm}} (input)="onSearchInputChange($event)"/>
   </mat-form-field>
   <button mat-raised-button color= "accent" (click)="onSearchButtonClick($event)" class="mx-auto w-50 my-1 search-button">Search</button>
-  <p>I typed {{searchTerm}}!!</p>
+  <!-- <p>I typed {{searchTerm}}!!</p> -->
 </div>
   
-  <!-- If more than one result is found for the given search term 
-  display links for each individual country -->
+  <!-- If more than one result is found for the given search term render countries list component -->
   <div *ngIf="searchedCountry.length > 1">
-    <!-- <div *ngFor = "let country of searchedCountry">
-        <a [routerLink] = "['/country', country.alpha2Code]">
-          <h3>{{country.name}}</h3>
-        </a>
-      </div> --> 
-    <!-- <app-country-info [searchedCountry] = "searchedCountry"></app-country-info> -->
-
-    <!-- display modal of countries-list if result contains more than one country -->
     <app-countries-list [countries] = "searchedCountry"></app-countries-list>
   </div>
-
-  <!-- <div *ngIf = "searchedCountry.length <= 0 && isSearched">
-    redirect to not found route
-    <app-not-found></app-not-found>
-  </div>  -->
-
-  <!-- <div *ngIf="searchedCountry.length > 0; else notFoundTemplate">
-      <app-country-info [searchedCountry] = "searchedCountry"></app-country-info>
-    </div>
-  
-  <!-- <ng-template #notFoundTemplate>
-    <app-not-found></app-not-found>
-  </ng-template> -->
-<!-- </div>
-<router-outlet></router-outlet> -->

@@ -1,5 +1,4 @@
 import { Component, OnInit, Inject, Input } from '@angular/core';
-import {DataShareService} from '../services/data-share.service';
 import { MatDialog, MatDialogRef, matDialogAnimations } from '@angular/material/dialog';
 import { CountryInfoComponent } from '../country-info/country-info.component';
 
@@ -13,9 +12,7 @@ import { CountryInfoComponent } from '../country-info/country-info.component';
 export class CountriesListComponent implements OnInit {
   @Input() countries: any;
   // inject data passed in to the dialog
-  constructor(
-              private _dataService: DataShareService,
-              public matDialog: MatDialog) { }
+  constructor(public matDialog: MatDialog) { }
 
   // countries = [];
   ngOnInit() {
