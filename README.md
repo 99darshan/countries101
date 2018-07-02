@@ -1,4 +1,4 @@
-# [Live Demo Hosted on Firebase](https://countries101-1529239188799.firebaseapp.com/)
+# [Checkout the Live Demo Here !!](https://countries101.99darshan.com.np/)
 
 # Countries101
 
@@ -13,7 +13,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## Credits
 * All information about the countries are fetched from <a href="http://restcountries.eu/"> REST Countries API </a>
 * 404 Page design inspired from <a href = "https://codepen.io/ricardpriet/pen/qVZxNo"> Codepen by Ricardo Prieto </a>
-* Background graphics designed by <a href="http://www.freepik.com">Designed by ikatod / Freepik</a>
+* Background graphics designed by <a href="http://www.freepik.com"> ikatod / Freepik</a>
 
 
 
