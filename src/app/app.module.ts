@@ -49,9 +49,8 @@ import { AgmCoreModule } from '@agm/core'; // angular maps
     MatToolbarModule,
     HttpClientModule,
     AgmCoreModule.forRoot({
-      // apiKey: 'GOOGLE_MAPS_API_KEY'
-      // TODO: add API_key to environment variable or app secret
-      apiKey: 'AIzaSyCzBxjKpRyxCsS1JDobQGG2hxjrizECD88'
+      // add Google maps  API_KEY to environment variable
+      apiKey: process.env.MAPS_API_KEY
 
     }),
     RouterModule.forRoot([
