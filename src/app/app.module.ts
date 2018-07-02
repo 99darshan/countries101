@@ -50,7 +50,9 @@ import { AgmCoreModule } from '@agm/core'; // angular maps
     HttpClientModule,
     AgmCoreModule.forRoot({
       // add Google maps  API_KEY to environment variable
-      apiKey: process.env.MAPS_API_KEY
+      // ADD YOUR GOOGLE MAPS API KEY HERE
+      //apiKey: process.env.MAPS_API_KEY
+      
 
     }),
     RouterModule.forRoot([
