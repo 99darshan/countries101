@@ -164,8 +164,9 @@
                 <div *ngFor="let con of borderCountries" class="ml-2 mb-2 d-inline-block">
 
                   <!-- displayed as image, all flags are scaled down properly -->
-                  <a (click)="onFlagClick($event, con)">
-                    <img src={{con.flag}} height="20em" width="20em" />
+                  <a (click)="onFlagClick($event, con)" class="border-flags">
+                    <img src={{con.flag}} height="30em" width="30em" />
+                    <span class="tooltip-text">{{con.name}}</span>
                   </a>
                   <!-- displayed as mat-icons, some flag maynot scale down properly -->
                   <!-- <button mat-icon-button matTooltip={{con.name}} color="accent" (click) = "onFlagClick($event, con)">

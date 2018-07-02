@@ -7,7 +7,7 @@
 
 <div class="flex-container-center">
   <mat-form-field class="mx-auto w-50 mt-3">
-    <input matInput type="text" placeholder="search country name..." value={{searchTerm}} (input)="onSearchInputChange($event)"/>
+    <input matInput type="text" placeholder="search country name..." value={{searchTerm}} (input)="onSearchInputChange($event)" (keyup.enter) = "onSearchButtonClick($event)" />
   </mat-form-field>
   <button mat-raised-button color= "accent" (click)="onSearchButtonClick($event)" class="mx-auto w-50 my-1 search-button">Search</button>
   <!-- <p>I typed {{searchTerm}}!!</p> -->
