@@ -53,9 +53,6 @@ import { AgmCoreModule } from '@agm/core'; // angular maps
       // ADD YOUR GOOGLE MAPS API KEY HERE
       // apiKey: process.env.MAPS_API_KEY
 
-      // apiKey: process.env.MAPS_API_KEY
-      apiKey: 'AIzaSyCzBxjKpRyxCsS1JDobQGG2hxjrizECD88'
-
     }),
     RouterModule.forRoot([
       {
