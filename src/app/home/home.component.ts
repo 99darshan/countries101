@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit {
     console.log('on clicked called');
     // clear searched entry
     // console.log(this.data.name);
-    this.service.fetchCountries(this.searchTerm)
+    this.service.fetchCountries(this.searchTerm.trim())
                 .subscribe(
                   (response) => {
                     // set searchTerm to empty so that it will be cleared from the input field
@@ -59,7 +59,7 @@ export class HomeComponent implements OnInit {
                       const matDialogRef = this.matDialog.open(CountryInfoComponent, {
                         width: '100vw',
                         panelClass: 'custom-mat-dialog-container',
-                        data: { country: this.searchedCountry[0] }
+                        data: { country: this.searchedCountry[0]}
                       });
                       this.displayToastMessage(`${this.searchedCountry.length} Country found.`, 'Close');
                       // this.router.navigate(['country', this.searchedCountry[0].alpha2Code]);
